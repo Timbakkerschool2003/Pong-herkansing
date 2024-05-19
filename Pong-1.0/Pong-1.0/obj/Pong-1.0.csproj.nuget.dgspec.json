@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Timba\\OneDrive\\Documents\\GitHub\\Pong-herkansing\\Pong-1.0\\Pong-1.0\\Pong-1.0.csproj": {}
+    "C:\\Users\\Ashra\\OneDrive\\Documenten\\GitHub\\SL2B\\Pong-herkansing\\Pong-1.0\\Pong-1.0\\Pong-1.0.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Timba\\OneDrive\\Documents\\GitHub\\Pong-herkansing\\Pong-1.0\\Pong-1.0\\Pong-1.0.csproj": {
+    "C:\\Users\\Ashra\\OneDrive\\Documenten\\GitHub\\SL2B\\Pong-herkansing\\Pong-1.0\\Pong-1.0\\Pong-1.0.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Timba\\OneDrive\\Documents\\GitHub\\Pong-herkansing\\Pong-1.0\\Pong-1.0\\Pong-1.0.csproj",
+        "projectUniqueName": "C:\\Users\\Ashra\\OneDrive\\Documenten\\GitHub\\SL2B\\Pong-herkansing\\Pong-1.0\\Pong-1.0\\Pong-1.0.csproj",
         "projectName": "Pong-1.0",
-        "projectPath": "C:\\Users\\Timba\\OneDrive\\Documents\\GitHub\\Pong-herkansing\\Pong-1.0\\Pong-1.0\\Pong-1.0.csproj",
-        "packagesPath": "C:\\Users\\Timba\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Timba\\OneDrive\\Documents\\GitHub\\Pong-herkansing\\Pong-1.0\\Pong-1.0\\obj\\",
+        "projectPath": "C:\\Users\\Ashra\\OneDrive\\Documenten\\GitHub\\SL2B\\Pong-herkansing\\Pong-1.0\\Pong-1.0\\Pong-1.0.csproj",
+        "packagesPath": "C:\\Users\\Ashra\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Ashra\\OneDrive\\Documenten\\GitHub\\SL2B\\Pong-herkansing\\Pong-1.0\\Pong-1.0\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Timba\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Ashra\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
