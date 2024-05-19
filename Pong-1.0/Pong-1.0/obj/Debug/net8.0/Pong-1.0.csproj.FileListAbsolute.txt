@@ -2,3 +2,14 @@ C:\Users\Timba\OneDrive\Documents\GitHub\Pong-herkansing\Pong-1.0\Pong-1.0\obj\D
 C:\Users\Timba\OneDrive\Documents\GitHub\Pong-herkansing\Pong-1.0\Pong-1.0\obj\Debug\net8.0\Pong-1.0.AssemblyInfoInputs.cache
 C:\Users\Timba\OneDrive\Documents\GitHub\Pong-herkansing\Pong-1.0\Pong-1.0\obj\Debug\net8.0\Pong-1.0.AssemblyInfo.cs
 C:\Users\Timba\OneDrive\Documents\GitHub\Pong-herkansing\Pong-1.0\Pong-1.0\obj\Debug\net8.0\Pong-1.0.csproj.CoreCompileInputs.cache
+C:\Users\Timba\OneDrive\Documents\GitHub\Pong-herkansing\Pong-1.0\Pong-1.0\bin\Debug\net8.0\Pong-1.0.exe
+C:\Users\Timba\OneDrive\Documents\GitHub\Pong-herkansing\Pong-1.0\Pong-1.0\bin\Debug\net8.0\Pong-1.0.deps.json
+C:\Users\Timba\OneDrive\Documents\GitHub\Pong-herkansing\Pong-1.0\Pong-1.0\bin\Debug\net8.0\Pong-1.0.runtimeconfig.json
+C:\Users\Timba\OneDrive\Documents\GitHub\Pong-herkansing\Pong-1.0\Pong-1.0\bin\Debug\net8.0\Pong-1.0.dll
+C:\Users\Timba\OneDrive\Documents\GitHub\Pong-herkansing\Pong-1.0\Pong-1.0\bin\Debug\net8.0\Pong-1.0.pdb
+C:\Users\Timba\OneDrive\Documents\GitHub\Pong-herkansing\Pong-1.0\Pong-1.0\obj\Debug\net8.0\Pong-1.0.sourcelink.json
+C:\Users\Timba\OneDrive\Documents\GitHub\Pong-herkansing\Pong-1.0\Pong-1.0\obj\Debug\net8.0\Pong-1.0.dll
+C:\Users\Timba\OneDrive\Documents\GitHub\Pong-herkansing\Pong-1.0\Pong-1.0\obj\Debug\net8.0\refint\Pong-1.0.dll
+C:\Users\Timba\OneDrive\Documents\GitHub\Pong-herkansing\Pong-1.0\Pong-1.0\obj\Debug\net8.0\Pong-1.0.pdb
+C:\Users\Timba\OneDrive\Documents\GitHub\Pong-herkansing\Pong-1.0\Pong-1.0\obj\Debug\net8.0\Pong-1.0.genruntimeconfig.cache
+C:\Users\Timba\OneDrive\Documents\GitHub\Pong-herkansing\Pong-1.0\Pong-1.0\obj\Debug\net8.0\ref\Pong-1.0.dll

@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Linq;
+using System.Threading; 
 
 namespace Pong
 {
@@ -15,6 +17,16 @@ namespace Pong
 
             int leftRacketHeight = 0;
             int rightRacketHeight = 0;
+
+            int ballX = fieldLength / 2;
+            int ballY = fieldWidth / 2;
+            const char ballTile = '0';
+
+            bool isBallGoingDown = true;
+            bool isBallGoingRight = true;
+
+            int leftPlayerPoints = 0;
+            int rightPlayerPoints = 0;
 
             while (true)
             {
@@ -34,20 +46,75 @@ namespace Pong
 
                 while (!Console.KeyAvailable)
                 {
+                    Console.SetCursorPosition(ballX, ballY);
+                    Console.WriteLine(ballTile);
+                    Thread.Sleep(100);
 
+                    if(isBallGoingDown)
+                    {
+                        ballY++;
+                    }
+                    else
+                    {
+                         ballY--;
+                    }
+
+                    if (isBallGoingRight)
+                    {
+                        ballX++;
+                    }
+                    else
+                    {
+                        ballX--;
+                    }
+
+                    if(ballY == 1 || ballY == fieldWidth - 1)
+                    {
+                        isBallGoingDown = !isBallGoingDown;
+                    }
+
+                    if(ballX == 1)
+                    {
+                        if(ballY >= leftRacketHeight + 1 && ballY <= leftRacketHeight + racketLength) 
+                        { 
+                            isBallGoingRight = !isBallGoingRight;
+
+                        }
+                        else
+                        {
+                            rightPlayerPoints++;
+                            ballY = fieldWidth / 2;
+                            ballX = fieldLength / 2;
+                        }
+                    }
+
+                    if (ballX == fieldLength - 2)
+                    {
+                        if (ballY >= rightRacketHeight + 1 && ballY <= rightRacketHeight + racketLength)
+                        {
+                            isBallGoingRight = !isBallGoingRight;
+
+                        }
+                        else
+                        {
+                            leftPlayerPoints++;
+                            ballY = fieldWidth / 2;
+                            ballX = fieldLength / 2;
+                        }
+                    }
                 }
 
                 switch (Console.ReadKey().Key)
                 {
-                    case ConsoleKey.UpArrow
+                    case ConsoleKey.UpArrow:
             
-            if (rightRacketHeight > 0)
+                        if (rightRacketHeight > 0)
                         {
                             rightRacketHeight--;
                         }
                         break;
 
-                    case ConsoleKey.DownArrow
+                    case ConsoleKey.DownArrow:
             
             if (rightRacketHeight < fieldWidth - racketLength - 1)
                         {
@@ -55,7 +122,7 @@ namespace Pong
                         }
                         break;
 
-                    case ConsoleKey.W
+                    case ConsoleKey.W:
             
             if (leftRacketHeight > 0)
                         {
@@ -63,13 +130,21 @@ namespace Pong
                         }
                         break;
 
-                    case ConsoleKey.S
+                    case ConsoleKey.S:
             
             if (leftRacketHeight < fieldWidth - racketLength - 1)
                         {
                             leftRacketHeight++;
                         }
                         break;
+
+                }
+                for (int i = 1; i < fieldWidth; i++)
+                {
+                    Console.SetCursorPosition(0, i);
+                    Console.Write(" ");
+                    Console.SetCursorPosition(fieldLength - 1, i);
+                    Console.Write(" ");
                 }
             }
         }
