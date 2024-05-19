@@ -39,33 +39,33 @@ namespace Pong
 
                 switch (Console.ReadKey().Key)
                 {
-                    case ConsoleKey.UpArrow
-            
-            if (rightRacketHeight > 0)
+                    case ConsoleKey.UpArrow:
+
+                        if (rightRacketHeight > 0)
                         {
                             rightRacketHeight--;
                         }
                         break;
 
-                    case ConsoleKey.DownArrow
-            
-            if (rightRacketHeight < fieldWidth - racketLength - 1)
+                    case ConsoleKey.DownArrow:
+
+                        if (rightRacketHeight < fieldWidth - racketLength - 1)
                         {
                             rightRacketHeight++;
                         }
                         break;
 
-                    case ConsoleKey.W
-            
-            if (leftRacketHeight > 0)
+                    case ConsoleKey.W:
+
+                        if (leftRacketHeight > 0)
                         {
                             leftRacketHeight--;
                         }
                         break;
 
-                    case ConsoleKey.S
-            
-            if (leftRacketHeight < fieldWidth - racketLength - 1)
+                    case ConsoleKey.S:
+
+                        if (leftRacketHeight < fieldWidth - racketLength - 1)
                         {
                             leftRacketHeight++;
                         }
