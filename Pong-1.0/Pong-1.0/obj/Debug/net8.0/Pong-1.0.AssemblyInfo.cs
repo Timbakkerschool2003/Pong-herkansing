@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Pong-1.0")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c4387a874d78a054112a8e5678af761c890deaf2")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ae4b4e32b8fc0bb5698f8fe21c6a57986e0d8a8d")]
 [assembly: System.Reflection.AssemblyProductAttribute("Pong-1.0")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Pong-1.0")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
