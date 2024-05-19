@@ -8,63 +8,63 @@ namespace Pong
     {
         public static void Main(string[] args)
         {
-            
-            const int fieldLength = 50, fieldWidth = 15;
-            const char fieldTile = '#';
-            string line = string.Concat(Enumerable.Repeat(fieldTile, fieldLength));
+            // Veldaanstellingen
+            const int fieldLength = 50, fieldWidth = 15; // Lengte en breedte van het veld
+            const char fieldTile = '#'; // Veldtegel symbool
+            string line = string.Concat(Enumerable.Repeat(fieldTile, fieldLength)); // Creëer de boven- en onderkant van het veld
 
-            
-            const int racketLength = fieldWidth / 4;
-            const char racketTile = '|';
+            // Racketinstellingen
+            const int racketLength = fieldWidth / 4; // Lengte van het racket
+            const char racketTile = '|'; // Racketsymbool
 
-            int leftRacketHeight = 0;
-            int rightRacketHeight = 0;
+            int leftRacketHeight = 0; // Startpositie van het linkerracket
+            int rightRacketHeight = 0; // Startpositie van het rechterracket
 
-            
-            int ballX = fieldLength / 2;
-            int ballY = fieldWidth / 2;
-            const char ballTile = 'O';
+            // Balinstellingen
+            int ballX = fieldLength / 2; // Startpositie van de bal (X)
+            int ballY = fieldWidth / 2; // Startpositie van de bal (Y)
+            const char ballTile = 'O'; // Balsymbool
 
-            bool isBallGoingDown = true;
-            bool isBallGoingRight = true;
+            bool isBallGoingDown = true; // Richting van de bal (omlaag)
+            bool isBallGoingRight = true; // Richting van de bal (rechts)
 
-            
-            int leftPlayerPoints = 0;
-            int rightPlayerPoints = 0;
+            // Spelerscores
+            int leftPlayerPoints = 0; // Punten van de linker speler
+            int rightPlayerPoints = 0; // Punten van de rechter speler
 
-            
-            int scoreboardX = fieldLength / 2 - 2;
-            int scoreboardY = fieldWidth + 1;
+            // Scorebordinstellingen
+            int scoreboardX = fieldLength / 2 - 2; // X-positie van het scorebord
+            int scoreboardY = fieldWidth + 1; // Y-positie van het scorebord
 
-            while (true)
+            while (true) // Hoofdgame loop
             {
-                
+                // Teken de boven- en onderkant van het veld
                 Console.SetCursorPosition(0, 0);
                 Console.WriteLine(line);
 
                 Console.SetCursorPosition(0, fieldWidth);
                 Console.WriteLine(line);
 
-                
+                // Teken de rackets
                 for (int i = 0; i < racketLength; i++)
                 {
-                    Console.SetCursorPosition(0, i + 1 + leftRacketHeight);
+                    Console.SetCursorPosition(0, i + 1 + leftRacketHeight); // Linkerracket
                     Console.WriteLine(racketTile);
-                    Console.SetCursorPosition(fieldLength - 1, i + 1 + rightRacketHeight);
+                    Console.SetCursorPosition(fieldLength - 1, i + 1 + rightRacketHeight); // Rechterracket
                     Console.WriteLine(racketTile);
                 }
 
-                
+                // Bewegende bal
                 while (!Console.KeyAvailable)
                 {
                     Console.SetCursorPosition(ballX, ballY);
-                    Console.WriteLine(ballTile);
-                    Thread.Sleep(100); 
+                    Console.WriteLine(ballTile); // Teken de bal
+                    Thread.Sleep(100); // Pauze
 
                     Console.SetCursorPosition(ballX, ballY);
-                    Console.WriteLine(" "); 
+                    Console.WriteLine(" "); // Verwijder de bal van de vorige positie
 
-                   
+                    // Beweeg de bal
                     if (isBallGoingDown)
                     {
                         ballY++;
@@ -83,45 +83,48 @@ namespace Pong
                         ballX--;
                     }
 
+                    // Botsing met boven- of onderkant
                     if (ballY == 1 || ballY == fieldWidth - 1)
                     {
-                        isBallGoingDown = !isBallGoingDown; 
+                        isBallGoingDown = !isBallGoingDown;
                     }
 
+                    // Botsing met linkerracket of score voor rechterspeler
                     if (ballX == 1)
                     {
-                        if (ballY >= leftRacketHeight + 1 && ballY <= leftRacketHeight + racketLength) //Left racket hits the ball and it bounces
+                        if (ballY >= leftRacketHeight + 1 && ballY <= leftRacketHeight + racketLength)
                         {
-                            isBallGoingRight = !isBallGoingRight;
+                            isBallGoingRight = !isBallGoingRight; // Bal stuitert terug
                         }
-                        else 
+                        else
                         {
                             rightPlayerPoints++;
                             ballY = fieldWidth / 2;
                             ballX = fieldLength / 2;
                             Console.SetCursorPosition(scoreboardX, scoreboardY);
                             Console.WriteLine($"{leftPlayerPoints} | {rightPlayerPoints}");
-                            if (rightPlayerPoints == 2)
+                            if (rightPlayerPoints == 10)
                             {
                                 break;
                             }
                         }
                     }
 
+                    // Botsing met rechterracket of score voor linkerspeler
                     if (ballX == fieldLength - 2)
                     {
-                        if (ballY >= rightRacketHeight + 1 && ballY <= rightRacketHeight + racketLength) //Right racket hits the ball and it bounces
+                        if (ballY >= rightRacketHeight + 1 && ballY <= rightRacketHeight + racketLength)
                         {
-                            isBallGoingRight = !isBallGoingRight;
+                            isBallGoingRight = !isBallGoingRight; // Bal stuitert terug
                         }
-                        else 
+                        else
                         {
                             leftPlayerPoints++;
                             ballY = fieldWidth / 2;
                             ballX = fieldLength / 2;
                             Console.SetCursorPosition(scoreboardX, scoreboardY);
                             Console.WriteLine($"{leftPlayerPoints} | {rightPlayerPoints}");
-                            if (leftPlayerPoints == 2)
+                            if (leftPlayerPoints == 10)
                             {
                                 break;
                             }
@@ -129,12 +132,13 @@ namespace Pong
                     }
                 }
 
-                if (rightPlayerPoints == 2 || leftPlayerPoints == 2)
+                // Controleer of iemand gewonnen heeft
+                if (rightPlayerPoints == 10 || leftPlayerPoints == 10)
                 {
                     break;
                 }
 
-
+                // Verwerk invoer van de gebruiker om de rackets te bewegen
                 switch (Console.ReadKey().Key)
                 {
                     case ConsoleKey.UpArrow:
@@ -166,7 +170,7 @@ namespace Pong
                         break;
                 }
 
-          
+                // Wis de oude racketposities
                 for (int i = 1; i < fieldWidth; i++)
                 {
                     Console.SetCursorPosition(0, i);
@@ -176,18 +180,19 @@ namespace Pong
                 }
             }
 
-            Console.SetCursorPosition(0, fieldWidth + 2); 
+            // Eindspelbericht
+            Console.SetCursorPosition(0, fieldWidth + 2);
 
-            if (rightPlayerPoints == 2)
+            if (rightPlayerPoints == 10)
             {
-                Console.WriteLine("Right player won!");
+                Console.WriteLine("Rechter speler heeft gewonnen!");
             }
             else
             {
-                Console.WriteLine("Left player won!");
+                Console.WriteLine("Linker speler heeft gewonnen!");
             }
 
-            Console.WriteLine("Press any key to exit...");
+            Console.WriteLine("Druk op een toets om af te sluiten...");
             Console.ReadKey();
         }
     }
