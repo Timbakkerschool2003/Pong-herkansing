@@ -2,3 +2,8 @@ C:\Users\Timba\OneDrive\Documents\GitHub\Pong-herkansing\Pong-1.0\Pong-1.0\obj\D
 C:\Users\Timba\OneDrive\Documents\GitHub\Pong-herkansing\Pong-1.0\Pong-1.0\obj\Debug\net8.0\Pong-1.0.AssemblyInfoInputs.cache
 C:\Users\Timba\OneDrive\Documents\GitHub\Pong-herkansing\Pong-1.0\Pong-1.0\obj\Debug\net8.0\Pong-1.0.AssemblyInfo.cs
 C:\Users\Timba\OneDrive\Documents\GitHub\Pong-herkansing\Pong-1.0\Pong-1.0\obj\Debug\net8.0\Pong-1.0.csproj.CoreCompileInputs.cache
+C:\Users\Ashra\OneDrive\Documenten\GitHub\SL2B\Pong-herkansing\Pong-1.0\Pong-1.0\obj\Debug\net8.0\Pong-1.0.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Ashra\OneDrive\Documenten\GitHub\SL2B\Pong-herkansing\Pong-1.0\Pong-1.0\obj\Debug\net8.0\Pong-1.0.AssemblyInfoInputs.cache
+C:\Users\Ashra\OneDrive\Documenten\GitHub\SL2B\Pong-herkansing\Pong-1.0\Pong-1.0\obj\Debug\net8.0\Pong-1.0.AssemblyInfo.cs
+C:\Users\Ashra\OneDrive\Documenten\GitHub\SL2B\Pong-herkansing\Pong-1.0\Pong-1.0\obj\Debug\net8.0\Pong-1.0.csproj.CoreCompileInputs.cache
+C:\Users\Ashra\OneDrive\Documenten\GitHub\SL2B\Pong-herkansing\Pong-1.0\Pong-1.0\obj\Debug\net8.0\Pong-1.0.sourcelink.json
