@@ -4,12 +4,15 @@ namespace Pong
 {
     public class Racket
     {
+        // Readonly fields for racket position and length
         private readonly int xPosition;
         private readonly int length;
         private readonly char tile = '|';
 
+        // Current y position of the racket
         private int yPosition;
 
+        // Constructor to initialize the racket position and length
         public Racket(int xPosition, int length)
         {
             this.xPosition = xPosition;
@@ -17,6 +20,7 @@ namespace Pong
             this.yPosition = 0;
         }
 
+        // Draw the racket on the console
         public void Draw()
         {
             for (int i = 0; i < length; i++)
@@ -26,6 +30,7 @@ namespace Pong
             }
         }
 
+        // Clear the racket from the console
         public void Clear()
         {
             for (int i = 0; i < length; i++)
@@ -35,6 +40,7 @@ namespace Pong
             }
         }
 
+        // Move the racket up
         public void MoveUp()
         {
             if (yPosition > 0)
@@ -45,6 +51,7 @@ namespace Pong
             }
         }
 
+        // Move the racket down
         public void MoveDown(int fieldWidth)
         {
             if (yPosition < fieldWidth - length - 1)
@@ -55,6 +62,7 @@ namespace Pong
             }
         }
 
+        // Check if the ball is hitting the racket
         public bool IsBallHitting(int ballY)
         {
             Clear();
