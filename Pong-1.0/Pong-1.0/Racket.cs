@@ -52,9 +52,9 @@ namespace Pong
         }
 
         // Move the racket down
-        public void MoveDown(int fieldWidth)
+        public void MoveDown(int fieldHeight)
         {
-            if (yPosition < fieldWidth - length - 1)
+            if (yPosition < fieldHeight - length - 1)
             {
                 Clear();
                 yPosition++;
@@ -65,8 +65,6 @@ namespace Pong
         // Check if the ball is hitting the racket
         public bool IsBallHitting(int ballY)
         {
-            Clear();
-            Draw();
             return ballY >= yPosition + 1 && ballY <= yPosition + length;
         }
     }
