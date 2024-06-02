@@ -1,38 +1,37 @@
 {
   "version": 3,
   "targets": {
-    "net8.0": {}
+    "net7.0": {}
   },
   "libraries": {},
   "projectFileDependencyGroups": {
-    "net8.0": []
+    "net7.0": []
   },
   "packageFolders": {
-    "C:\\Users\\Ashra\\.nuget\\packages\\": {}
+    "/Users/rara/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Ashra\\OneDrive\\Documenten\\GitHub\\SL2B\\Pong-herkansing\\Pong-1.0\\Pong-1.0\\Pong-1.0.csproj",
+      "projectUniqueName": "/Users/rara/Desktop/Pong-herkansing/Pong-1.0/Pong-1.0/Pong-1.0.csproj",
       "projectName": "Pong-1.0",
-      "projectPath": "C:\\Users\\Ashra\\OneDrive\\Documenten\\GitHub\\SL2B\\Pong-herkansing\\Pong-1.0\\Pong-1.0\\Pong-1.0.csproj",
-      "packagesPath": "C:\\Users\\Ashra\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Ashra\\OneDrive\\Documenten\\GitHub\\SL2B\\Pong-herkansing\\Pong-1.0\\Pong-1.0\\obj\\",
+      "projectPath": "/Users/rara/Desktop/Pong-herkansing/Pong-1.0/Pong-1.0/Pong-1.0.csproj",
+      "packagesPath": "/Users/rara/.nuget/packages/",
+      "outputPath": "/Users/rara/Desktop/Pong-herkansing/Pong-1.0/Pong-1.0/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Ashra\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "/Users/rara/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
-        "net8.0"
+        "net7.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "/usr/local/share/dotnet/library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
-        "net8.0": {
-          "targetAlias": "net8.0",
+        "net7.0": {
+          "targetAlias": "net7.0",
           "projectReferences": {}
         }
       },
@@ -48,8 +47,8 @@
       }
     },
     "frameworks": {
-      "net8.0": {
-        "targetAlias": "net8.0",
+      "net7.0": {
+        "targetAlias": "net7.0",
         "imports": [
           "net461",
           "net462",
@@ -61,12 +60,26 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.AspNetCore.App.Ref",
+            "version": "[7.0.20, 7.0.20]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Host.osx-arm64",
+            "version": "[7.0.20, 7.0.20]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Ref",
+            "version": "[7.0.20, 7.0.20]"
+          }
+        ],
         "frameworkReferences": {
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.301/RuntimeIdentifierGraph.json"
       }
     }
   }

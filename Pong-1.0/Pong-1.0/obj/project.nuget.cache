@@ -1,8 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "+5UBB5ImRyXF1jg7WktY1ILoWVUGjt8jwWdo+ZrNf+LyAXuN3heCw+xYzD3AJjtb+r+umNuFf28zPRezXad2sw==",
+  "dgSpecHash": "t3b0ERXiTR0=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Ashra\\OneDrive\\Documenten\\GitHub\\SL2B\\Pong-herkansing\\Pong-1.0\\Pong-1.0\\Pong-1.0.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "/Users/rara/Desktop/Pong-herkansing/Pong-1.0/Pong-1.0/Pong-1.0.csproj",
+  "expectedPackageFiles": [
+    "/Users/rara/.nuget/packages/microsoft.netcore.app.ref/7.0.20/microsoft.netcore.app.ref.7.0.20.nupkg.sha512",
+    "/Users/rara/.nuget/packages/microsoft.aspnetcore.app.ref/7.0.20/microsoft.aspnetcore.app.ref.7.0.20.nupkg.sha512",
+    "/Users/rara/.nuget/packages/microsoft.netcore.app.host.osx-arm64/7.0.20/microsoft.netcore.app.host.osx-arm64.7.0.20.nupkg.sha512"
+  ],
   "logs": []
 }
