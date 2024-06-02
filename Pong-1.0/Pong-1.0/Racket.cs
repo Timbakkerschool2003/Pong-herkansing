@@ -58,7 +58,7 @@ namespace Pong
             {
                 Clear();
                 yPosition++;
-                Draw();
+                //Draw();
             }
         }
 
