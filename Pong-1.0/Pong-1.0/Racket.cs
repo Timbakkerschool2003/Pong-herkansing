@@ -65,8 +65,6 @@ namespace Pong
         // Check if the ball is hitting the racket
         public bool IsBallHitting(int ballY)
         {
-            Clear();
-            Draw();
             return ballY >= yPosition + 1 && ballY <= yPosition + length;
         }
     }

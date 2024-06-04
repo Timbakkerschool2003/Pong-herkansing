@@ -24,14 +24,17 @@ namespace Pong
         public Game()
         {
             field = new Field(FieldLength, FieldWidth);
-            leftRacket = new Racket(1, RacketLength);
-            rightRacket = new Racket(FieldLength - 2, RacketLength);
+            leftRacket = new Racket(2, RacketLength); // Adjusted position for left racket
+            rightRacket = new Racket(FieldLength - 3, RacketLength); // Adjusted position for right racket
             ball = new Ball(FieldLength / 2, FieldWidth / 2, FieldLength, FieldWidth);
         }
 
         // Start the game loop
         public void Start()
         {
+            // Hide the cursor
+            Console.CursorVisible = false;
+
             while (true)
             {
                 // Draw the game components
@@ -44,6 +47,10 @@ namespace Pong
                 while (!Console.KeyAvailable)
                 {
                     ball.Move(leftRacket, rightRacket, ref leftPlayerPoints, ref rightPlayerPoints);
+
+                    // Redraw rackets to prevent them from being overwritten
+                    leftRacket.Draw();
+                    rightRacket.Draw();
 
                     // Display the score
                     Console.SetCursorPosition(FieldLength / 2 - 2, FieldWidth + 1);
@@ -91,18 +98,21 @@ namespace Pong
         // End the game and display the winner
         private void EndGame()
         {
+            // Show the cursor
+            Console.CursorVisible = true;
+
             Console.SetCursorPosition(0, FieldWidth + 2);
 
             if (rightPlayerPoints == 10)
             {
-                Console.WriteLine("Right player wins!");
+                Console.WriteLine("Rechts wint!");
             }
             else
             {
-                Console.WriteLine("Left player wins!");
+                Console.WriteLine("Links wint!");
             }
 
-            Console.WriteLine("Press any key to exit...");
+            Console.WriteLine("Klik op een toets...");
             Console.ReadKey();
         }
     }

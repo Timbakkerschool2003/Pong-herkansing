@@ -27,14 +27,14 @@ namespace Pong
         public void Draw()
         {
             Console.SetCursorPosition(x, y);
-            Console.WriteLine(tile);
+            Console.Write(tile);
         }
 
         // Clear the ball from the console
         public void Clear()
         {
             Console.SetCursorPosition(x, y);
-            Console.WriteLine(" ");
+            Console.Write(' ');
         }
 
         // Move the ball and handle collisions
@@ -68,13 +68,11 @@ namespace Pong
             }
 
             // Handle collision with left racket or scoring for right player
-            if (x == 1)
+            if (x == 2)  // Adjusted position for left racket
             {
                 if (leftRacket.IsBallHitting(y))
                 {
                     isGoingRight = !isGoingRight;
-                    leftRacket.Clear();
-                    leftRacket.Draw();
                 }
                 else
                 {
@@ -84,13 +82,11 @@ namespace Pong
             }
 
             // Handle collision with right racket or scoring for left player
-            if (x == fieldLength - 2)
+            if (x == fieldLength - 3)  // Adjusted position for right racket
             {
                 if (rightRacket.IsBallHitting(y))
                 {
                     isGoingRight = !isGoingRight;
-                    rightRacket.Clear();
-                    rightRacket.Draw();
                 }
                 else
                 {
