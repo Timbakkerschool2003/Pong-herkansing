@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 namespace Pong
 {
@@ -14,6 +15,8 @@ namespace Pong
         private bool isGoingDown = true;
         private bool isGoingRight = true;
 
+        private List<IObserver> observers = new List<IObserver>();
+
         // Constructor to initialize the ball position and field dimensions
         public Ball(int startX, int startY, int fieldLength, int fieldWidth)
         {
@@ -22,6 +25,30 @@ namespace Pong
             this.fieldLength = fieldLength;
             this.fieldWidth = fieldWidth;
         }
+
+        //ObserverPattern start
+        // Add an observer to the list
+        public void AddObserver(IObserver observer)
+        {
+            observers.Add(observer);
+        }
+
+        // Remove an observer from the list
+        public void RemoveObserver(IObserver observer)
+        {
+            observers.Remove(observer);
+        }
+
+        // Notify all observers
+        private void NotifyObservers()
+        {
+            foreach (var observer in observers)
+            {
+                observer.Update(this);
+            }
+        }
+
+        //ObserverPattern End
 
         // Draw the ball on the console
         public void Draw()
@@ -96,6 +123,7 @@ namespace Pong
             }
 
             Draw();
+            NotifyObservers();
         }
 
         // Reset the ball to the center of the field
@@ -104,5 +132,14 @@ namespace Pong
             x = fieldLength / 2;
             y = fieldWidth / 2;
         }
+
+        // Getters for ball position
+        public int X { get { return x; } }
+        public int Y { get { return y; } }
+    }
+
+    public interface IObserver
+    {
+        void Update(Ball ball);
     }
 }

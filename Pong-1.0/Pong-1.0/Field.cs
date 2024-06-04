@@ -11,13 +11,28 @@ namespace Pong
         private readonly char verticalTile = '|';
         private readonly string horizontalLine;
 
-        // Constructor to initialize the field dimensions
-        public Field(int length, int width)
+        // Singleton Pattern start
+        // Static variable to hold the single instance of the class
+        private static Field instance;
+
+        // Private constructor to prevent instantiation from outside
+        private Field(int length, int width)
         {
             this.length = length;
             this.width = width;
             this.horizontalLine = new string(horizontalTile, length);
         }
+
+        // Public method to get the single instance of the class
+        public static Field GetInstance(int length, int width)
+        {
+            if (instance == null)
+            {
+                instance = new Field(length, width);
+            }
+            return instance;
+        }
+        // Singleton Pattern end
 
         // Draw the field borders
         public void Draw()

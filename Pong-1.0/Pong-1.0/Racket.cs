@@ -12,6 +12,9 @@ namespace Pong
         // Current y position of the racket
         private int yPosition;
 
+        // Object for locking
+        private readonly object lockObject = new object();
+
         // Constructor to initialize the racket position and length
         public Racket(int xPosition, int length)
         {
@@ -23,49 +26,64 @@ namespace Pong
         // Draw the racket on the console
         public void Draw()
         {
-            for (int i = 0; i < length; i++)
+            lock (lockObject) // Monitor Pattern start
             {
-                Console.SetCursorPosition(xPosition, i + 1 + yPosition);
-                Console.WriteLine(tile);
-            }
+                for (int i = 0; i < length; i++)
+                {
+                    Console.SetCursorPosition(xPosition, i + 1 + yPosition);
+                    Console.WriteLine(tile);
+                }
+            } // Monitor Pattern end
         }
 
         // Clear the racket from the console
         public void Clear()
         {
-            for (int i = 0; i < length; i++)
+            lock (lockObject) // Monitor Pattern start
             {
-                Console.SetCursorPosition(xPosition, i + 1 + yPosition);
-                Console.WriteLine(" ");
-            }
+                for (int i = 0; i < length; i++)
+                {
+                    Console.SetCursorPosition(xPosition, i + 1 + yPosition);
+                    Console.WriteLine(" ");
+                }
+            } // Monitor Pattern end
         }
 
         // Move the racket up
         public void MoveUp()
         {
-            if (yPosition > 0)
+            lock (lockObject) // Monitor Pattern start
             {
-                Clear();
-                yPosition--;
-                Draw();
-            }
+                if (yPosition > 0)
+                {
+                    Clear();
+                    yPosition--;
+                    Draw();
+                }
+            } // Monitor Pattern end
         }
 
         // Move the racket down
         public void MoveDown(int fieldWidth)
         {
-            if (yPosition < fieldWidth - length - 1)
+            lock (lockObject) // Monitor Pattern start
             {
-                Clear();
-                yPosition++;
-                Draw();
-            }
+                if (yPosition < fieldWidth - length - 1)
+                {
+                    Clear();
+                    yPosition++;
+                    Draw();
+                }
+            } // Monitor Pattern end
         }
 
         // Check if the ball is hitting the racket
         public bool IsBallHitting(int ballY)
         {
-            return ballY >= yPosition + 1 && ballY <= yPosition + length;
+            lock (lockObject) // Monitor Pattern start
+            {
+                return ballY >= yPosition + 1 && ballY <= yPosition + length;
+            } // Monitor Pattern end
         }
     }
 }

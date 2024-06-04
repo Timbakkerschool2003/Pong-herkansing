@@ -20,6 +20,7 @@ namespace Pong
         private int leftPlayerPoints;
         private int rightPlayerPoints;
 
+        // Facade Pattern start
         // Constructor to initialize the game components
         public Game()
         {
@@ -115,5 +116,6 @@ namespace Pong
             Console.WriteLine("Klik op een toets...");
             Console.ReadKey();
         }
+        // Facade Pattern end
     }
 }
