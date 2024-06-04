@@ -5,7 +5,7 @@ namespace Pong
 {
     public class Ball
     {
-        // Fields for ball position and movement direction
+        // Velden voor de balpositie en bewegingsrichting
         private int x;
         private int y;
         private readonly int fieldLength;
@@ -17,7 +17,7 @@ namespace Pong
 
         private List<IObserver> observers = new List<IObserver>();
 
-        // Constructor to initialize the ball position and field dimensions
+        // Constructor om de balpositie en veldafmetingen te initialiseren
         public Ball(int startX, int startY, int fieldLength, int fieldWidth)
         {
             this.x = startX;
@@ -26,20 +26,25 @@ namespace Pong
             this.fieldWidth = fieldWidth;
         }
 
-        //ObserverPattern start
-        // Add an observer to the list
+        // Observer-patroon start
+        // Het Observer-patroon wordt hier gebruikt om meerdere objecten (de observers) op de hoogte te stellen
+        // van veranderingen in de balpositie. Dit is handig omdat het de bal in staat stelt om automatisch 
+        // te communiceren met andere onderdelen van het spel, zoals de rackets en de scoreborden, zonder 
+        // dat deze onderdelen direct aan elkaar gekoppeld zijn.
+
+        // Voeg een observer toe aan de lijst
         public void AddObserver(IObserver observer)
         {
             observers.Add(observer);
         }
 
-        // Remove an observer from the list
+        // Verwijder een observer uit de lijst
         public void RemoveObserver(IObserver observer)
         {
             observers.Remove(observer);
         }
 
-        // Notify all observers
+        // Stel alle observers op de hoogte
         private void NotifyObservers()
         {
             foreach (var observer in observers)
@@ -48,28 +53,28 @@ namespace Pong
             }
         }
 
-        //ObserverPattern End
+        // Observer-patroon einde
 
-        // Draw the ball on the console
+        // Teken de bal op de console
         public void Draw()
         {
             Console.SetCursorPosition(x, y);
             Console.Write(tile);
         }
 
-        // Clear the ball from the console
+        // Wis de bal van de console
         public void Clear()
         {
             Console.SetCursorPosition(x, y);
             Console.Write(' ');
         }
 
-        // Move the ball and handle collisions
+        // Beweeg de bal en handel botsingen af
         public void Move(Racket leftRacket, Racket rightRacket, ref int leftPlayerPoints, ref int rightPlayerPoints)
         {
             Clear();
 
-            // Update ball position
+            // Werk de balpositie bij
             if (isGoingDown)
             {
                 y++;
@@ -88,14 +93,14 @@ namespace Pong
                 x--;
             }
 
-            // Handle collision with top or bottom of the field
+            // Handel botsingen met de boven- of onderkant van het veld af
             if (y == 1 || y == fieldWidth - 1)
             {
                 isGoingDown = !isGoingDown;
             }
 
-            // Handle collision with left racket or scoring for right player
-            if (x == 2)  // Adjusted position for left racket
+            // Handel botsingen met het linkerracket of scoren voor de rechterspeler af
+            if (x == 2)  // Aangepaste positie voor linkerracket
             {
                 if (leftRacket.IsBallHitting(y))
                 {
@@ -108,8 +113,8 @@ namespace Pong
                 }
             }
 
-            // Handle collision with right racket or scoring for left player
-            if (x == fieldLength - 3)  // Adjusted position for right racket
+            // Handel botsingen met het rechterracket of scoren voor de linker speler af
+            if (x == fieldLength - 3)  // Aangepaste positie voor rechterracket
             {
                 if (rightRacket.IsBallHitting(y))
                 {
@@ -126,14 +131,14 @@ namespace Pong
             NotifyObservers();
         }
 
-        // Reset the ball to the center of the field
+        // Reset de bal naar het midden van het veld
         private void Reset()
         {
             x = fieldLength / 2;
             y = fieldWidth / 2;
         }
 
-        // Getters for ball position
+        // Getters voor de balpositie
         public int X { get { return x; } }
         public int Y { get { return y; } }
     }

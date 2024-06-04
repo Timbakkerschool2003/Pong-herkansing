@@ -5,75 +5,80 @@ namespace Pong
 {
     public class Game
     {
-        // Constants for field dimensions and racket length
+        // Constanten voor veldafmetingen en racketlengte
         private const int FieldLength = 70;
         private const int FieldWidth = 19;
         private const int RacketLength = FieldWidth / 4;
 
-        // Game components
+        // Spelcomponenten
         private Field field;
         private Racket leftRacket;
         private Racket rightRacket;
         private Ball ball;
 
-        // Player points
+        // Spelerpunten
         private int leftPlayerPoints;
         private int rightPlayerPoints;
 
-        // Facade Pattern start
-        // Constructor to initialize the game components
+        // Facade-patroon start
+        // De Game-klasse fungeert als een Facade om de interactie met de spelcomponenten te vereenvoudigen.
+        // Het initialiseert en beheert het veld, de rackets en de bal, en biedt een enkele interface
+        // voor het starten en beheren van het spel. Dit maakt de code gemakkelijker te gebruiken en te begrijpen
+        // door de complexiteit van de onderliggende componenten te verbergen.
+
+        // Constructor om de spelcomponenten te initialiseren
         public Game()
         {
             field = new Field(FieldLength, FieldWidth);
-            leftRacket = new Racket(2, RacketLength); // Adjusted position for left racket
-            rightRacket = new Racket(FieldLength - 3, RacketLength); // Adjusted position for right racket
+            leftRacket = new Racket(2, RacketLength); // Aangepaste positie voor linkerracket
+            rightRacket = new Racket(FieldLength - 3, RacketLength); // Aangepaste positie voor rechterracket
             ball = new Ball(FieldLength / 2, FieldWidth / 2, FieldLength, FieldWidth);
         }
 
-        // Start the game loop
+        // Start de spel lus
         public void Start()
         {
-            // Hide the cursor
+            // Verberg de cursor
             Console.CursorVisible = false;
 
             while (true)
             {
-                // Draw the game components
+                // Teken de spelcomponenten
                 field.Draw();
                 leftRacket.Draw();
                 rightRacket.Draw();
                 ball.Draw();
 
-                // Move the ball while no key is pressed
+                // Beweeg de bal terwijl er geen toets is ingedrukt
                 while (!Console.KeyAvailable)
                 {
                     ball.Move(leftRacket, rightRacket, ref leftPlayerPoints, ref rightPlayerPoints);
 
-                    // Redraw rackets to prevent them from being overwritten
+                    // Teken de rackets opnieuw om te voorkomen dat ze worden overschreven
                     leftRacket.Draw();
                     rightRacket.Draw();
 
-                    // Display the score
+                    // Toon de score
                     Console.SetCursorPosition(FieldLength / 2 - 2, FieldWidth + 1);
                     Console.WriteLine($"{leftPlayerPoints} | {rightPlayerPoints}");
 
-                    // Check for game end
+                    // Controleer of het spel is afgelopen
                     if (leftPlayerPoints == 10 || rightPlayerPoints == 10)
                     {
                         EndGame();
                         return;
                     }
 
-                    // Delay for ball movement
+                    // Vertraging voor balbeweging
                     Thread.Sleep(100);
                 }
 
-                // Handle player input
+                // Verwerk spelersinvoer
                 HandleInput();
             }
         }
 
-        // Handle player input for racket movement
+        // Verwerk spelersinvoer voor racketbeweging
         private void HandleInput()
         {
             switch (Console.ReadKey(true).Key)
@@ -96,10 +101,10 @@ namespace Pong
             }
         }
 
-        // End the game and display the winner
+        // Beëindig het spel en toon de winnaar
         private void EndGame()
         {
-            // Show the cursor
+            // Toon de cursor
             Console.CursorVisible = true;
 
             Console.SetCursorPosition(0, FieldWidth + 2);
@@ -113,9 +118,9 @@ namespace Pong
                 Console.WriteLine("Links wint!");
             }
 
-            Console.WriteLine("Klik op een toets...");
+            Console.WriteLine("Klik op een toets om af te sluiten...");
             Console.ReadKey();
         }
-        // Facade Pattern end
+        // Facade-patroon einde
     }
 }
