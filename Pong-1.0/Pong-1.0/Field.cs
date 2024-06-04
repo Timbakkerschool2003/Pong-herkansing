@@ -4,21 +4,18 @@ namespace Pong
 {
     public class Field
     {
-        // Readonly velden voor veldafmetingen en tegelkarakter
+        // Readonly fields for field dimensions and tile character
         private readonly int length;
         private readonly int width;
         private readonly char horizontalTile = '-';
         private readonly char verticalTile = '|';
         private readonly string horizontalLine;
 
-        // Singleton-patroon start
-        // Statisch veld om de enige instantie van de klasse bij te houden
-        // Het Singleton-patroon wordt hier gebruikt om ervoor te zorgen dat er slechts één instantie van het veld
-        // bestaat in het spel. Dit is handig omdat het veld uniek moet zijn en overal in de applicatie toegankelijk 
-        // moet zijn zonder meerdere keren te worden geïnitialiseerd.
+        // Singleton pattern start
+        // Static field to keep track of the single instance of the class
         private static Field instance;
 
-        // Privéconstructor om te voorkomen dat er van buitenaf een instantie wordt aangemaakt
+        // Private constructor to prevent external instantiation
         private Field(int length, int width)
         {
             this.length = length;
@@ -26,7 +23,7 @@ namespace Pong
             this.horizontalLine = new string(horizontalTile, length);
         }
 
-        // Openbare methode om de enige instantie van de klasse te krijgen
+        // Public method to get the single instance of the class
         public static Field GetInstance(int length, int width)
         {
             if (instance == null)
@@ -35,16 +32,16 @@ namespace Pong
             }
             return instance;
         }
-        // Singleton-patroon einde
+        // Singleton pattern end
 
-        // Teken de veldgrenzen
+        // Draw the field boundaries
         public void Draw()
         {
-            // Teken de bovenste grens
+            // Draw the top boundary
             Console.SetCursorPosition(0, 0);
             Console.WriteLine(horizontalLine);
 
-            // Teken de linker- en rechtergrens
+            // Draw the left and right boundaries
             for (int i = 1; i < width; i++)
             {
                 Console.SetCursorPosition(0, i);
@@ -53,7 +50,7 @@ namespace Pong
                 Console.Write(verticalTile);
             }
 
-            // Teken de onderste grens
+            // Draw the bottom boundary
             Console.SetCursorPosition(0, width);
             Console.WriteLine(horizontalLine);
         }
