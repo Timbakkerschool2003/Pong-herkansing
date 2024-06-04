@@ -96,7 +96,7 @@ namespace Pong
                 {
                     leftPlayerPoints++;
                     Reset();
-                }   
+                }
             }
 
             Draw();
