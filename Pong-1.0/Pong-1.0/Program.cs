@@ -4,12 +4,12 @@ namespace Pong
 {
     public class Program
     {
-        // Main entry point of the program
+        // Hoofdinvoerpunt van het programma
         public static void Main(string[] args)
         {
-            // Create a new game instance
+            // Maak een nieuwe game-instantie aan
             Game game = new Game();
-            // Start the game
+            // Start het spel
             game.Start();
         }
     }
