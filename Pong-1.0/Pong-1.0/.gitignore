@@ -35,7 +35,7 @@ bld/
 #wwwroot/
 
 # Visual Studio 2019
-.vs/
+vs/
 .vsconfig
 
 # MSTest test Results
@@ -48,7 +48,7 @@ bld/
 
 # User-specific files
 .vscode/*
-*.vs/
+vs/
 *.tfignore
 *.rsuser
 *.user
