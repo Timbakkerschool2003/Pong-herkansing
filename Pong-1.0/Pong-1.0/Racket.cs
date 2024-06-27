@@ -1,4 +1,5 @@
 using System;
+using System.Threading;
 
 namespace Pong
 {
@@ -28,10 +29,6 @@ namespace Pong
         {
             lock (lockObject) // Monitor-patroon start
             {
-                // Het Monitor-patroon wordt hier gebruikt om ervoor te zorgen dat de bewerkingen 
-                // voor het tekenen van het racket op de console thread-safe zijn. Dit is handig 
-                // omdat het voorkomt dat meerdere threads tegelijkertijd toegang hebben tot de 
-                // tekenbewerkingen, wat kan leiden tot inconsistente weergave of fouten.
                 for (int i = 0; i < length; i++)
                 {
                     Console.SetCursorPosition(xPosition, i + 1 + yPosition);
@@ -45,9 +42,6 @@ namespace Pong
         {
             lock (lockObject) // Monitor-patroon start
             {
-                // Het Monitor-patroon zorgt hier ook voor thread-safe bewerkingen bij het wissen 
-                // van het racket van de console. Dit voorkomt problemen wanneer meerdere threads 
-                // tegelijkertijd proberen de console-output te wijzigen.
                 for (int i = 0; i < length; i++)
                 {
                     Console.SetCursorPosition(xPosition, i + 1 + yPosition);
@@ -61,9 +55,6 @@ namespace Pong
         {
             lock (lockObject) // Monitor-patroon start
             {
-                // Het Monitor-patroon zorgt ervoor dat de bewerkingen voor het verplaatsen van het racket 
-                // omhoog thread-safe zijn, waardoor wordt voorkomen dat meerdere threads tegelijkertijd 
-                // toegang hebben tot en wijzigingen aanbrengen in de racketpositie.
                 if (yPosition > 0)
                 {
                     Clear();
@@ -78,9 +69,6 @@ namespace Pong
         {
             lock (lockObject) // Monitor-patroon start
             {
-                // Het Monitor-patroon zorgt ervoor dat de bewerkingen voor het verplaatsen van het racket 
-                // omlaag thread-safe zijn, waardoor wordt voorkomen dat meerdere threads tegelijkertijd 
-                // toegang hebben tot en wijzigingen aanbrengen in de racketpositie.
                 if (yPosition < fieldWidth - length - 1)
                 {
                     Clear();
@@ -95,11 +83,34 @@ namespace Pong
         {
             lock (lockObject) // Monitor-patroon start
             {
-                // Het Monitor-patroon zorgt ervoor dat de bewerkingen voor het controleren of de bal 
-                // het racket raakt thread-safe zijn, waardoor wordt voorkomen dat meerdere threads 
-                // tegelijkertijd toegang hebben tot en wijzigingen aanbrengen in de racketpositie.
                 return ballY >= yPosition + 1 && ballY <= yPosition + length;
             } // Monitor-patroon einde
         }
+
+        // Multithreading start
+        public void StartMoving(int fieldWidth)
+        {
+            Thread moveUpThread = new Thread(() =>
+            {
+                while (true)
+                {
+                    MoveUp();
+                    Thread.Sleep(100); // Pauzeer tussen de bewegingen
+                }
+            });
+
+            Thread moveDownThread = new Thread(() =>
+            {
+                while (true)
+                {
+                    MoveDown(fieldWidth);
+                    Thread.Sleep(100); // Pauzeer tussen de bewegingen
+                }
+            });
+
+            moveUpThread.Start();
+            moveDownThread.Start();
+        }
+        // Multithreading einde
     }
 }

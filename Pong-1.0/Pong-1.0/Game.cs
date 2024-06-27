@@ -112,8 +112,37 @@ namespace Pong
                 Console.WriteLine("Links wint!!");
             }
 
+            // Show confetti
+            ShowConfetti();
+
             Console.WriteLine("Klik op een toets...");
             Console.ReadKey();
+        }
+
+        // Method to show confetti effect
+        private void ShowConfetti()
+        {
+            Random random = new Random();
+            int confettiCount = 100; // Number of confetti pieces
+            ConsoleColor[] colors = { ConsoleColor.Red, ConsoleColor.Yellow, ConsoleColor.Green, ConsoleColor.Cyan, ConsoleColor.Blue, ConsoleColor.Magenta };
+
+            for (int i = 0; i < confettiCount; i++)
+            {
+                int x = random.Next(0, FieldLength);
+                int y = random.Next(0, FieldWidth);
+                ConsoleColor color = colors[random.Next(colors.Length)];
+
+                Console.SetCursorPosition(x, y);
+                Console.ForegroundColor = color;
+                Console.Write('*');
+
+                Thread.Sleep(20); // Delay to create animation effect
+            }
+
+            // Reset the console color and clear confetti after showing
+            Console.ForegroundColor = ConsoleColor.White;
+            Thread.Sleep(500); // Pause to display confetti
+            Console.Clear();
         }
     }
 }

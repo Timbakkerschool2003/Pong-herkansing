@@ -2,7 +2,14 @@ using System;
 
 namespace Pong
 {
-    public class Field
+    // Base class for drawable objects
+    public abstract class Drawable
+    {
+        // Virtual draw method to be overridden by derived classes
+        public abstract void Draw();
+    }
+
+    public class Field : Drawable
     {
         // Readonly fields for field dimensions and tile character
         private readonly int length;
@@ -34,8 +41,9 @@ namespace Pong
         }
         // Singleton pattern end
 
-        // Draw the field boundaries
-        public void Draw()
+        // Polymorphism start
+        // Override the Draw method from the base class
+        public override void Draw()
         {
             // Draw the top boundary
             Console.SetCursorPosition(0, 0);
@@ -54,5 +62,6 @@ namespace Pong
             Console.SetCursorPosition(0, width);
             Console.WriteLine(horizontalLine);
         }
+        // Polymorphism end
     }
 }

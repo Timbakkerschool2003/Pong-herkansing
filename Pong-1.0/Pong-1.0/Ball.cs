@@ -74,6 +74,7 @@ namespace Pong
         {
             Clear();
 
+            // Algorithm start: Ball movement and collision detection
             // Werk de balpositie bij
             if (isGoingDown)
             {
@@ -126,6 +127,7 @@ namespace Pong
                     Reset();
                 }
             }
+            // Algorithm end: Ball movement and collision detection
 
             Draw();
             NotifyObservers();
